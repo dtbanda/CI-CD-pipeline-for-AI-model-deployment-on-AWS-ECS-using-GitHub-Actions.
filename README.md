@@ -92,5 +92,5 @@ This project is designed for cloud engineers, DevOps engineers, and AI infrastru
    git clone https://github.com/yourusername/ecs-llm-ci-cd.git
    cd ecs-llm-ci-cd
 ## 📣 Author
-**Dalitso Banda**
-**Cloud Engineer | Infrastructure for AI | DevOps | Systems Design**
+- **Dalitso Banda**
+- **Cloud Engineer | Infrastructure for AI | DevOps | Systems Design**
