@@ -1,14 +1,13 @@
 # 🚀 CI/CD Pipeline for Containerised AI Model Deployment on AWS ECS
 
-This project demonstrates how to automate the deployment of a containerized AI model using GitHub Actions, Docker, and AWS ECS (Fargate). The focus is on implementing a complete DevOps pipeline for model versioning, testing, secure deployment, and rollback support — without relying on manual infrastructure management.
+This is a demonstration of how to automate the deployment of a containerised AI model using GitHub Actions, Docker, and AWS ECS (Fargate). The focus is on implementing a complete DevOps pipeline for model versioning, testing, secure deployment, and rollback support — without relying on manual infrastructure management.
 
 ---
 
 ## 📌 Project Overview
 
 - **Goal:** Deploy and manage a lightweight AI model using a CI/CD pipeline.
-- **Infrastructure:** AWS ECS (Fargate), ECR, CloudWatch, IAM, GitHub Actions
-- **DevOps Tools:** Terraform, Docker, GitHub Actions
+- **Tools:** Terraform, Docker, GitHub Actions, AWS ECS (Fargate), ECR, CloudWatch, IAM.
 - **Focus Areas:** Infrastructure as Code (IaC), CI/CD, container orchestration, secrets management, rollback and update strategies.
 
 ---
