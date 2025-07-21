@@ -1,4 +1,4 @@
-# 🚀 CI/CD Pipeline for Containerized AI Model Deployment on AWS ECS
+# 🚀 CI/CD Pipeline for Containerised AI Model Deployment on AWS ECS
 
 This project demonstrates how to automate the deployment of a containerized AI model using GitHub Actions, Docker, and AWS ECS (Fargate). The focus is on implementing a complete DevOps pipeline for model versioning, testing, secure deployment, and rollback support — without relying on manual infrastructure management.
 
@@ -10,29 +10,6 @@ This project demonstrates how to automate the deployment of a containerized AI m
 - **Infrastructure:** AWS ECS (Fargate), ECR, CloudWatch, IAM, GitHub Actions
 - **DevOps Tools:** Terraform, Docker, GitHub Actions
 - **Focus Areas:** Infrastructure as Code (IaC), CI/CD, container orchestration, secrets management, rollback and update strategies.
-
----
-
-## 📂 File Structure
-.
-├── .github/
-│ └── workflows/
-│ └── deploy.yml # GitHub Actions workflow for CI/CD
-├── app/
-│ ├── main.py # FastAPI app serving the AI model
-│ ├── model/ # Lightweight model files or weights
-│ └── requirements.txt # Python dependencies
-├── infra/
-│ ├── main.tf # ECS cluster, task definition, and services
-│ └── variables.tf
-├── scripts/
-│ ├── build_and_push.sh # Script to build and push Docker image to ECR
-│ └── deploy_model.sh # Optional: Manual deploy trigger
-├── Dockerfile # Container definition for the app
-├── terraform.tfvars # Environment-specific config
-├── .env # Local testing config (ignored in CI/CD)
-├── README.md
-└── .gitignore
 
 ---
 
@@ -114,3 +91,6 @@ This project is designed for cloud engineers, DevOps engineers, and AI infrastru
    ```bash
    git clone https://github.com/yourusername/ecs-llm-ci-cd.git
    cd ecs-llm-ci-cd
+📣 Author
+Dalitso Banda
+Cloud Engineer | Infrastructure for AI | DevOps | Systems Design
