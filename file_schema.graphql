@@ -1,0 +1,18 @@
+type Project {
+  .github: Directory
+  ├── workflows: Directory
+  │   └── deploy.yml: CI/CD Pipeline for deployment
+  app: Directory
+  ├── main.py: Entry point of FastAPI app
+  ├── schema.graphql: GraphQL schema definitions
+  ├── resolvers: Directory
+  │   ├── jobs.py: Resolvers for job-related GraphQL queries/mutations
+  │   └── users.py: Resolvers for user-related operations
+  ├── models: Directory
+  │   └── job_model.py: Pydantic model for job data
+  └── services: Directory
+      └── job_queue.py: Business logic for interacting with the job queue
+  Dockerfile: File to containerize FastAPI + GraphQL API
+  requirements.txt: Python dependencies
+  README.md: Project documentation
+}
