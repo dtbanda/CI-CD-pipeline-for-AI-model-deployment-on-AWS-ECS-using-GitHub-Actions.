@@ -84,12 +84,8 @@ This project is designed for cloud engineers, DevOps engineers, and AI infrastru
 
 ---
 
-### Setup Instructions
-
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/yourusername/ecs-llm-ci-cd.git
-   cd ecs-llm-ci-cd
+### Setup Instructions (Coming soon)
+---
 ## 📣 Author
 - **Dalitso Banda**
 - **Cloud Engineer | Infrastructure for AI | DevOps | Systems Design**
