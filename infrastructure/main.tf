@@ -1,51 +1,67 @@
-resource "aws_vpc" "main_vpc" {
-  cidr_block = "10.0.0.0/16"
+terraform {
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
 }
 
-resource "aws_subnet" "main_subnet" {
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+provider "aws" {
+  region = var.aws_region
 }
 
-resource "aws_security_group" "app_sg" {
-  name        = "app_sg"
-  description = "Allow SSH and HTTP"
-  vpc_id      = aws_vpc.main_vpc.id
+resource "aws_instance" "app_server" {
+  ami                         = var.ami_id
+  instance_type               = var.instance_type
+  key_name                    = "devops-labs"
+  associate_public_ip_address = true
+
+  vpc_security_group_ids = [aws_security_group.allow_ssh_docker_app.id]
+
+  user_data = file("${path.module}/../scripts/user_data.sh")
+  
+  tags = {
+    Name = var.instance_name
+  }
+}
+
+data "aws_vpc" "default" {
+  default = true
+}
+
+resource "aws_security_group" "allow_ssh_docker_app" {
+  name ="allow_ssh_&_docker_app"
+  description = "allow ssh and docker app port 8000"
+  vpc_id = data.aws_vpc.default.id
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    description = "SSH access"
+    from_port = 22
+    to_port =22
+    protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
+    description = "Docker app - port 8000"
+    from_port = 8000
+    to_port = 8000
+    protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
-
-resource "aws_instance" "app_server" {
-  ami                         = "ami-0c55b159cbfafe1f0" # Ubuntu Server 20.04 in us-east-1
-  instance_type               = var.instance_type
-  subnet_id                   = aws_subnet.main_subnet.id
-  vpc_security_group_ids      = [aws_security_group.app_sg.id]
-  associate_public_ip_address = true
-  key_name                    = var.key_name
-
-  user_data = file("${path.module}/user_data.sh")
-
+  
   tags = {
-    Name = "AI-Pipeline-Server"
+    name = "allow_ssh_&_docker_app"
   }
 }
