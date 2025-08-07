@@ -14,7 +14,7 @@ jobs:
       AWS_REGION: eu-north-1
       ECR_REPO: my-llm-api-repo
       ECS_CLUSTER: llm-cluster
-      ECS_SERVICE: llm-service        # Only needed if you have a service created
+      ECS_SERVICE: llm-service        # Only needed if you a service
       CONTAINER_NAME: llm-api-container
       TASK_NAME: llm-task             # Matches Terraform's task definition family
 
