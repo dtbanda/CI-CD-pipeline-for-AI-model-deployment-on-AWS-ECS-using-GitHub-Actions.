@@ -7,17 +7,22 @@ variable "public_key_path" {
   default     = "~/.ssh/id_rsa.pub"
 }
 
-variable "ami_id" {
-  description = "Ubuntu arm64 machine"
-  default     = "ami-008e58f8f6505bf76" 
+variable "ecr_repo_name" {
+  description = "ECR repository name"
+  default     = "my-llm-api-repo"
 }
 
-variable "instance_type" {
-  default = "t4g.small" #Graviton arm architecture
+variable "ecs_cluster_name" {
+  description = "ECS Cluster name"
+  default     = "llm-cluster"
 }
 
-variable "instance_name" {
-  description = "Value of the Name tag for the EC2 instance"
-  type        = string
-  default     = "liquid_ai_lab"
+variable "task_name" {
+  description = "ECS Task Definition name"
+  default     = "llm-task"
+}
+
+variable "container_name" {
+  description = "Container name"
+  default     = "llm-api-container"
 }

@@ -1,9 +1,11 @@
-output "instance_id" {
-  description = "ID of the EC2 instance"
-  value       = aws_instance.app_server.id
+output "ecr_repo_url" {
+  value = aws_ecr_repository.llm_repo.repository_url
 }
 
-output "instance_public_ip" {
-  description = "Public IP address of the EC2 instance"
-  value       = aws_instance.app_server.public_ip
+output "ecs_cluster_name" {
+  value = aws_ecs_cluster.llm_cluster.name
+}
+
+output "task_definition_arn" {
+  value = aws_ecs_task_definition.llm_task.arn
 }
